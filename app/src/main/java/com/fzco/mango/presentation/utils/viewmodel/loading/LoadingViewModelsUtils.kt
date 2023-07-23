@@ -16,6 +16,6 @@ fun <STATE: ILoadingState, SIDE_EFFECT: ISideEffect>
     }
     transformer()
     reduce {
-        state.apply { isLoading = true }
+        state.apply { isLoading = false }
     }
 }

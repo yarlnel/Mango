@@ -10,7 +10,10 @@ abstract class BaseViewModel <STATE: IState, SIDE_EFFECT: ISideEffect> : ViewMod
     IBaseViewModel<STATE, SIDE_EFFECT> {
 
     protected abstract val initialState: STATE
-    override val container: Container<STATE, SIDE_EFFECT> get() = container(initialState)
+
+    override val container: Container<STATE, SIDE_EFFECT> by lazy {
+        container(initialState)
+    }
 
     val state get() = container.stateFlow.value
     val stateFlow get() = container.stateFlow

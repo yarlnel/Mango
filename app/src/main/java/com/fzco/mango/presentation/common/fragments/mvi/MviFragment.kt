@@ -20,7 +20,9 @@ abstract class MviFragment<VM : ViewModel, VB : ViewBinding>(
 
     @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    protected val viewModel get() = viewModelFactory.create(viewModelClass.java)
+    protected val viewModel by lazy {
+        viewModelFactory.create(viewModelClass.java)
+    }
 
     protected fun observe(
         stateCollectLaunch: (suspend CoroutineScope.() -> Unit)? = null,

@@ -3,6 +3,7 @@ package com.fzco.mango.presentation.screens.auth.send.ui
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.lifecycleScope
 import com.fzco.mango.R
 import com.fzco.mango.databinding.FragmentSendAuthCodeBinding
 import com.fzco.mango.presentation.common.backpress.BackPressedStrategyOwner
@@ -13,12 +14,19 @@ import com.fzco.mango.presentation.screens.auth.send.vm.SendAuthCodeViewModel
 import com.fzco.mango.presentation.utils.fragment.renderLoading
 import com.fzco.mango.presentation.utils.view.onTextChanged
 import com.fzco.mango.presentation.utils.view.onclick
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
+import timber.log.Timber
+import kotlin.coroutines.CoroutineContext
 
 class SendAuthCodeFragment : MviFragment<SendAuthCodeViewModel, FragmentSendAuthCodeBinding>(
     viewModelClass = SendAuthCodeViewModel::class,
     bindingBlock = FragmentSendAuthCodeBinding::inflate
-), BackPressedStrategyOwner {
+), BackPressedStrategyOwner, CoroutineScope {
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -35,8 +43,12 @@ class SendAuthCodeFragment : MviFragment<SendAuthCodeViewModel, FragmentSendAuth
         }
     )
 
+
     private fun render(state: SendAuthCodeState) = with(state) {
         renderLoading(binding.loadingIndicator)
+        toast(isLoading.toString())
+        toast(phone.toString())
+        toast("543")
     }
 
     private fun handleSideEffect(sideEffect: SendAuthCodeSideEffect) = when(sideEffect) {
@@ -67,4 +79,6 @@ class SendAuthCodeFragment : MviFragment<SendAuthCodeViewModel, FragmentSendAuth
     override fun handleOnBackPressed() {
         requireActivity().finish()
     }
+
+    override val coroutineContext: CoroutineContext = Dispatchers.Main + Job()
 }

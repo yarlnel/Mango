@@ -8,6 +8,7 @@ import com.fzco.mango.presentation.screens.auth.send.contract.SendAuthCodeSideEf
 import com.fzco.mango.presentation.screens.auth.send.contract.SendAuthCodeState
 import com.fzco.mango.presentation.utils.viewmodel.loading.intentLoading
 import com.github.terrakok.cicerone.Router
+import kotlinx.coroutines.delay
 import org.orbitmvi.orbit.syntax.simple.intent
 import org.orbitmvi.orbit.syntax.simple.postSideEffect
 import org.orbitmvi.orbit.syntax.simple.reduce
@@ -27,6 +28,7 @@ class SendAuthCodeViewModel @Inject constructor (
     }
 
     fun requestSendAuthCode(phone: String) = intentLoading {
+        delay(3000)
         val isSuccess = sendAuthCode(phone)
         if (isSuccess) {
             router.navigateTo(Screens.ConfirmAuthCode())
