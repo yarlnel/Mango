@@ -36,4 +36,8 @@ class SendAuthCodeViewModel @Inject constructor (
             postSideEffect(SendAuthCodeSideEffect.SendAuthError)
         }
     }
+
+    fun openSelectCountryScreen() = intent {
+        router.navigateTo(Screens.SelectCountryCode())
+    }
 }

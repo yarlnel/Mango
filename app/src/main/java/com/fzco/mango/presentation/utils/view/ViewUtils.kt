@@ -4,12 +4,13 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
+import android.widget.TextView
 
 infix fun View.onclick(callback: () -> Unit) {
     setOnClickListener { callback.invoke() }
 }
 
-infix fun EditText.onTextChanged(callback: (text: String) -> Unit) {
+infix fun TextView.onTextChanged(callback: (text: String) -> Unit) {
     val watcher = object : TextWatcher {
 
         override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}

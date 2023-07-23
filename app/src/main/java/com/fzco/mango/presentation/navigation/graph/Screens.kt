@@ -2,6 +2,7 @@ package com.fzco.mango.presentation.navigation.graph
 
 import com.fzco.mango.presentation.screens.auth.confirm.ui.ConfirmAuthCodeFragment
 import com.fzco.mango.presentation.screens.auth.send.ui.SendAuthCodeFragment
+import com.fzco.mango.presentation.screens.country.ui.SelectCountryCodeFragment
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 
 object Screens {
@@ -12,5 +13,9 @@ object Screens {
 
     fun ConfirmAuthCode() = FragmentScreen {
         ConfirmAuthCodeFragment()
+    }
+
+    fun SelectCountryCode() = FragmentScreen {
+        SelectCountryCodeFragment()
     }
 }
