@@ -56,6 +56,7 @@
 
     <EditText
         android:id="@+id/field_phone"
+        android:inputType="phone"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginEnd="16dp"
@@ -63,8 +64,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="40dp"
         tools:text="+79131039900"
+
         app:layout_constraintTop_toBottomOf="@id/txt_description"
         />
+
 
 
     <Button
@@ -86,6 +89,5 @@
         tools:visibility="visible"
         android:visibility="gone"
         />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

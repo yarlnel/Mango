@@ -27,17 +27,24 @@ class SendAuthCodeViewModel @Inject constructor (
         }
     }
 
-    fun requestSendAuthCode(phone: String) = intentLoading {
-        delay(3000)
+    fun requestSendAuthCode(phone: String) = intent {
+        reduce { state.copy(isLoading = true) }
         val isSuccess = sendAuthCode(phone)
         if (isSuccess) {
             router.navigateTo(Screens.ConfirmAuthCode())
         } else {
             postSideEffect(SendAuthCodeSideEffect.SendAuthError)
         }
+        reduce { state.copy(isLoading = false) }
     }
 
     fun openSelectCountryScreen() = intent {
         router.navigateTo(Screens.SelectCountryCode())
+    }
+
+    fun updateCountryCode(countryCode: String) = intent {
+        reduce {
+            state.copy(countryCode = countryCode)
+        }
     }
 }

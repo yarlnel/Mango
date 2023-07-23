@@ -33,7 +33,7 @@ class SelectCountryCodeFragment
                         SendAuthCodeFragment.DataKey.CountryCode to item.countryCode
                     )
                 )
-                requireActivity().finish()
+                performOnBackPressed()
             }
 
             bind {

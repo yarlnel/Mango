@@ -20,7 +20,7 @@ class RetrofitModule {
             Timber.tag("OkHttpLog").d(message)
         }
 
-        interceptor.level = HttpLoggingInterceptor.Level.BASIC
+        interceptor.level = HttpLoggingInterceptor.Level.BODY
 
         return interceptor
     }

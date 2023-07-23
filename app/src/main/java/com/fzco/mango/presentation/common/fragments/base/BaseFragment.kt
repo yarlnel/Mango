@@ -35,4 +35,8 @@ abstract class BaseFragment<VB : ViewBinding> constructor(
         val durationStrategy = if (isDurationLong) Toast.LENGTH_LONG else Toast.LENGTH_SHORT
         Toast.makeText(requireContext(), text, durationStrategy).show()
     }
+
+    protected fun toast(textObject: Any?, isDurationLong: Boolean = false) {
+        toast(textObject.toString(), isDurationLong)
+    }
 }

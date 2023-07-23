@@ -2,6 +2,8 @@ package com.fzco.mango.presentation.screens.auth.send.ui
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.telephony.PhoneNumberFormattingTextWatcher
+import android.text.Editable
 import android.view.View
 import androidx.fragment.app.setFragmentResultListener
 import com.fzco.mango.R
@@ -11,15 +13,21 @@ import com.fzco.mango.presentation.common.fragments.mvi.MviFragment
 import com.fzco.mango.presentation.screens.auth.send.contract.SendAuthCodeSideEffect
 import com.fzco.mango.presentation.screens.auth.send.contract.SendAuthCodeState
 import com.fzco.mango.presentation.screens.auth.send.vm.SendAuthCodeViewModel
+import com.fzco.mango.presentation.utils.common.countryCodeToEmoji
 import com.fzco.mango.presentation.utils.fragment.renderLoading
 import com.fzco.mango.presentation.utils.view.onTextChanged
 import com.fzco.mango.presentation.utils.view.onclick
+import io.michaelrocks.libphonenumber.android.PhoneNumberUtil
 import kotlinx.coroutines.flow.collectLatest
+import javax.inject.Inject
 
 class SendAuthCodeFragment : MviFragment<SendAuthCodeViewModel, FragmentSendAuthCodeBinding>(
     viewModelClass = SendAuthCodeViewModel::class,
     bindingBlock = FragmentSendAuthCodeBinding::inflate
 ), BackPressedStrategyOwner {
+
+    @Inject
+    lateinit var phoneUtil: PhoneNumberUtil
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -40,7 +48,7 @@ class SendAuthCodeFragment : MviFragment<SendAuthCodeViewModel, FragmentSendAuth
         renderLoading(binding.loadingIndicator)
     }
 
-    private fun handleSideEffect(sideEffect: SendAuthCodeSideEffect) = when(sideEffect) {
+    private fun handleSideEffect(sideEffect: SendAuthCodeSideEffect) = when (sideEffect) {
         SendAuthCodeSideEffect.SendAuthError -> showSendAuthError()
     }
 
@@ -65,14 +73,54 @@ class SendAuthCodeFragment : MviFragment<SendAuthCodeViewModel, FragmentSendAuth
         }
 
         setFragmentResultListener(FragmentsResultKey.PhoneCountryCode) { _, bundle ->
-            val result = bundle.getString(DataKey.CountryCode)
-            toast("Result: $result")
+            val countryCode = bundle.getString(DataKey.CountryCode)
+                ?: return@setFragmentResultListener
+
+            viewModel.updateCountryCode(countryCode)
+            setCountryEmoji(countryCode)
+            setCountryMask(countryCode)
         }
+    }
+
+    private fun setCountryEmoji(countryCode: String) = with(binding) {
+        btnCountry.text = countryCodeToEmoji(countryCode)
+    }
+
+    private fun setCountryMask(countryCode: String) = with(binding) {
+//        val exampleNumber = phoneUtil.getExampleNumber(countryCode)
+//        val formattedNumber = phoneUtil.formatNumberForMobileDialing(
+//            exampleNumber,
+//            countryCode,
+//            true
+//        )
+//        val mask = formattedNumber.replace(Regex("\\d"), "_")
+//
+//        val phoneNumberTextWatcher = object : PhoneNumberFormattingTextWatcher(countryCode) {
+//            override fun afterTextChanged(s: Editable) {
+//                super.afterTextChanged(s)
+//                val maskSuffix = mask.drop(s.length)
+//                if (maskSuffix !in s) {
+//                    s.append(maskSuffix)
+//                }
+//            }
+//        }
+        val phoneNumberTextWatcher = PhoneNumberFormattingTextWatcher(countryCode)
+        val phonePrefix = phoneUtil.getCountryCodeForRegion(countryCode)
+        val phonePrefixFull = getString(R.string.phone_prefix_template, phonePrefix)
+        fieldPhone.setText(phonePrefixFull)
+        fieldPhone.addTextChangedListener(phoneNumberTextWatcher)
+        fieldPhone.setSelection(phonePrefixFull.length)
     }
 
     override fun onResume() {
         super.onResume()
-        binding.fieldPhone.setText(viewModel.state.phone)
+        with(binding) {
+            with(viewModel.state) {
+                fieldPhone.setText(phone)
+                setCountryEmoji(countryCode)
+                setCountryMask(countryCode)
+            }
+        }
     }
 
     override fun handleOnBackPressed() {
