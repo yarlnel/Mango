@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
 import dagger.android.support.DaggerFragment
 
+typealias BindingInflationBlock<VB> = (LayoutInflater, ViewGroup?, Boolean) -> VB
+
 abstract class BaseFragment<VB : ViewBinding> constructor(
-    private val bindingBlock: (LayoutInflater, ViewGroup?, Boolean) -> VB
+    private val bindingBlock: BindingInflationBlock<VB>
 ) : DaggerFragment() {
 
     lateinit var binding: VB

@@ -1,15 +1,27 @@
 package com.fzco.mango.presentation.activities.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.OnBackPressedCallback
 import com.fzco.mango.R
 import com.fzco.mango.presentation.common.backpress.BackPressedStrategyOwner
+import com.fzco.mango.presentation.navigation.graph.Screens
+import com.github.terrakok.cicerone.NavigatorHolder
+import com.github.terrakok.cicerone.Router
+import com.github.terrakok.cicerone.androidx.AppNavigator
+import dagger.android.support.DaggerAppCompatActivity
+import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : DaggerAppCompatActivity() {
+
+    private val navigator = AppNavigator(this, R.id.container)
+
+    @Inject lateinit var navigatorHolder: NavigatorHolder
+    @Inject lateinit var router: Router
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        router.navigateTo(Screens.SendAuthCode())
         setUpBackPressedHandling()
     }
 
@@ -22,6 +34,16 @@ class MainActivity : AppCompatActivity() {
                 supportFragmentManager.popBackStack()
             }
         }
+    }
+
+    override fun onResumeFragments() {
+        super.onResumeFragments()
+        navigatorHolder.setNavigator(navigator)
+    }
+
+    override fun onPause() {
+        navigatorHolder.removeNavigator()
+        super.onPause()
     }
 
     private fun setUpBackPressedHandling() {

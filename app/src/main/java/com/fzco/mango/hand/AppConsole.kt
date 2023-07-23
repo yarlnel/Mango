@@ -1,7 +1,7 @@
 package com.fzco.mango.hand
 
-import com.fzco.mango.data.network.api.MangoService
-import com.fzco.mango.data.network.models.registration.RegisterUserBody
+import com.fzco.mango.data.remote.api.MangoApi
+import com.fzco.mango.data.remote.models.registration.RegisterUserBody
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -27,7 +27,7 @@ private val service by lazy {
         .client(client)
         .build()
 
-    retrofit.create<MangoService>()
+    retrofit.create<MangoApi>()
 }
 
 fun main() {
