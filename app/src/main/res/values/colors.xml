@@ -9,5 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="grey_light">#EAEAEA</color>
     <color name="salat">#8BC34A</color>
-    <color name="green_end">#4CAF50</color>
+    <color name="green_project">#4CAF50</color>
+    <color name="salat_light">#AEEA00</color>
+    <color name="salat_light_variant">#C7FA10</color>
 </resources>

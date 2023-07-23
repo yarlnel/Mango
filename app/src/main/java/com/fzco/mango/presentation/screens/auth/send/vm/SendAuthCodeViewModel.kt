@@ -6,6 +6,7 @@ import com.fzco.mango.presentation.common.viewmodel.BaseViewModel
 import com.fzco.mango.presentation.navigation.graph.Screens
 import com.fzco.mango.presentation.screens.auth.send.contract.SendAuthCodeSideEffect
 import com.fzco.mango.presentation.screens.auth.send.contract.SendAuthCodeState
+import com.fzco.mango.presentation.utils.viewmodel.loading.intentLoading
 import com.github.terrakok.cicerone.Router
 import org.orbitmvi.orbit.syntax.simple.intent
 import org.orbitmvi.orbit.syntax.simple.postSideEffect
@@ -25,13 +26,12 @@ class SendAuthCodeViewModel @Inject constructor (
         }
     }
 
-    fun requestSendAuthCode(phone: String) = intent {
+    fun requestSendAuthCode(phone: String) = intentLoading {
         val isSuccess = sendAuthCode(phone)
         if (isSuccess) {
             router.navigateTo(Screens.ConfirmAuthCode())
         } else {
             postSideEffect(SendAuthCodeSideEffect.SendAuthError)
         }
-
     }
 }

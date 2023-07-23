@@ -79,4 +79,16 @@
         android:layout_margin="16dp"
         android:text="@string/sent_auth_code"/>
 
+    <ProgressBar
+        android:id="@+id/loadingIndicator"
+        style="@style/LoadingIndicator.Base"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:visibility="visible"
+        android:visibility="gone"
+        />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

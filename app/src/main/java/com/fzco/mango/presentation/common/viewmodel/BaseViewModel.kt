@@ -1,15 +1,13 @@
 package com.fzco.mango.presentation.common.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.github.terrakok.cicerone.Router
+import com.fzco.mango.presentation.common.viewmodel.contract.ISideEffect
+import com.fzco.mango.presentation.common.viewmodel.contract.IState
 import org.orbitmvi.orbit.Container
-import org.orbitmvi.orbit.ContainerHost
 import org.orbitmvi.orbit.viewmodel.container
-import javax.inject.Inject
 
-abstract class BaseViewModel <STATE: Any, SIDE_EFFECT: Any> : ViewModel(),
-    ContainerHost<STATE, SIDE_EFFECT>,
-    IBaseViewModel {
+abstract class BaseViewModel <STATE: IState, SIDE_EFFECT: ISideEffect> : ViewModel(),
+    IBaseViewModel<STATE, SIDE_EFFECT> {
 
     protected abstract val initialState: STATE
     override val container: Container<STATE, SIDE_EFFECT> get() = container(initialState)

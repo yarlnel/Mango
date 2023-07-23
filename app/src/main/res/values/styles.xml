@@ -33,4 +33,12 @@
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">18sp</item>
     </style>
+
+    <style name="LoadingIndicator"/>
+    <style name="LoadingIndicator.Base" parent="LoadingIndicator">
+        <item name="android:indeterminateTint">@color/green_project</item>
+        <item name="android:layout_width">62dp</item>
+        <item name="android:layout_height">62dp</item>
+    </style>
+
 </resources>

@@ -1,6 +1,8 @@
 package com.fzco.mango.presentation.screens.auth.send.contract
 
-sealed interface SendAuthCodeSideEffect {
+import com.fzco.mango.presentation.common.viewmodel.contract.ISideEffect
+
+sealed interface SendAuthCodeSideEffect : ISideEffect {
 
     object SendAuthError : SendAuthCodeSideEffect
 }
