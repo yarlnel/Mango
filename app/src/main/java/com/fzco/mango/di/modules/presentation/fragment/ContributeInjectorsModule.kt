@@ -1,5 +1,8 @@
 package com.fzco.mango.di.modules.presentation.fragment
 
+import com.fzco.mango.di.modules.presentation.viewmodel.auth.confirm.ConfirmAuthCodeModule
+import com.fzco.mango.di.modules.presentation.viewmodel.auth.send.SendAuthCodeModule
+import com.fzco.mango.di.modules.presentation.viewmodel.common.country.SelectCountryCodeModule
 import com.fzco.mango.presentation.activities.main.MainActivity
 import com.fzco.mango.presentation.screens.auth.confirm.ConfirmAuthCodeFragment
 import com.fzco.mango.presentation.screens.auth.send.SendAuthCodeFragment
@@ -13,12 +16,12 @@ interface ContributeInjectorsModule {
     @ContributesAndroidInjector
     fun mainActivity(): MainActivity
 
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = [SendAuthCodeModule::class])
     fun sendAuthCodeFragment(): SendAuthCodeFragment
 
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = [ConfirmAuthCodeModule::class])
     fun confirmAuthCodeFragment(): ConfirmAuthCodeFragment
 
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = [SelectCountryCodeModule::class])
     fun selectCountryCodeFragment(): SelectCountryCodeFragment
 }

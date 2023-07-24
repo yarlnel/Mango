@@ -6,9 +6,8 @@ import io.michaelrocks.libphonenumber.android.PhoneNumberUtil
 import org.orbitmvi.orbit.syntax.simple.intent
 import org.orbitmvi.orbit.syntax.simple.reduce
 import java.util.Locale
-import javax.inject.Inject
 
-class SelectCountryCodeViewModel @Inject constructor(
+class SelectCountryCodeViewModel(
     private val phoneUtil: PhoneNumberUtil
 ) : BaseViewModel<SelectCountryCodeState, SelectCountryCodeSideEffect>() {
 

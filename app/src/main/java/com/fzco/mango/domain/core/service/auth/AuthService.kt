@@ -2,7 +2,7 @@ package com.fzco.mango.domain.core.service.auth
 
 import com.fzco.mango.domain.models.auth.AuthConfirmationInfo
 
-interface IAuthService {
+interface AuthService {
 
     suspend fun registerUser(
         name: String,

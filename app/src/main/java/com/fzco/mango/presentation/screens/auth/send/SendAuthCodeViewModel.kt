@@ -12,7 +12,7 @@ import org.orbitmvi.orbit.syntax.simple.postSideEffect
 import org.orbitmvi.orbit.syntax.simple.reduce
 import javax.inject.Inject
 
-class SendAuthCodeViewModel @Inject constructor (
+class SendAuthCodeViewModel(
     private val router: Router,
     private val sendAuthCode: SendAuthCode,
 ) : BaseViewModel<SendAuthCodeState, SendAuthCodeSideEffect>() {

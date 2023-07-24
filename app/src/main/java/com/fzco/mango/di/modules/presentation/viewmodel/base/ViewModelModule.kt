@@ -18,13 +18,4 @@ interface ViewModelModule {
     fun bindDaggerViewModelFactory(
         factory: DaggerViewModelFactory
     ) : ViewModelProvider.Factory
-
-    @[Binds IntoMap ViewModelKey(SendAuthCodeViewModel::class)]
-    fun bindSendAuthCodeViewModel(vm: SendAuthCodeViewModel): ViewModel
-
-    @[Binds IntoMap ViewModelKey(ConfirmAuthCodeViewModel::class)]
-    fun bindConfirmAuthCodeViewModel(vm: ConfirmAuthCodeViewModel): ViewModel
-
-    @[Binds IntoMap ViewModelKey(SelectCountryCodeViewModel::class)]
-    fun bindSelectCountryCodeViewModel(vm: SelectCountryCodeViewModel): ViewModel
 }

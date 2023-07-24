@@ -4,13 +4,13 @@ import com.fzco.mango.data.remote.api.MangoApi
 import com.fzco.mango.data.remote.models.auth.chek.CheckAuthCodeBody
 import com.fzco.mango.data.remote.models.auth.send.SendAuthCodeBody
 import com.fzco.mango.data.remote.models.registration.RegisterUserBody
-import com.fzco.mango.domain.core.service.auth.IAuthService
+import com.fzco.mango.domain.core.service.auth.AuthService
 import com.fzco.mango.domain.models.auth.AuthConfirmationInfo
 import javax.inject.Inject
 
-class AuthService @Inject constructor(
+class AuthServiceImpl @Inject constructor(
     private val api: MangoApi
-) : IAuthService {
+) : AuthService {
 
     override suspend fun registerUser(name: String, username: String, phone: String): Boolean {
         val body = RegisterUserBody(name, phone, username)

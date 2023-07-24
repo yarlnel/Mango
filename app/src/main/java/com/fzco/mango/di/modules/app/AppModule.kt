@@ -7,6 +7,7 @@ import com.fzco.mango.di.modules.presentation.fragment.ContributeInjectorsModule
 import com.fzco.mango.di.modules.presentation.utils.UtilsModule
 import com.fzco.mango.di.modules.presentation.viewmodel.base.ViewModelModule
 import dagger.Module
+import javax.inject.Qualifier
 
 @Module(includes = [
     NavigationModule::class,
@@ -14,6 +15,7 @@ import dagger.Module
     ServiceModule::class,
     ViewModelModule::class,
     ContributeInjectorsModule::class,
-    UtilsModule::class
+    UtilsModule::class,
+    RetrofitModule::class
 ])
 interface AppModule
