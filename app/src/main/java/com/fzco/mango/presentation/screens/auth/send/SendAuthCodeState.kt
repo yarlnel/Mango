@@ -1,4 +1,4 @@
-package com.fzco.mango.presentation.screens.auth.send.contract
+package com.fzco.mango.presentation.screens.auth.send
 
 import com.fzco.mango.presentation.common.viewmodel.loading.ILoadingState
 

@@ -1,8 +1,8 @@
 package com.fzco.mango.presentation.navigation.graph
 
-import com.fzco.mango.presentation.screens.auth.confirm.ui.ConfirmAuthCodeFragment
-import com.fzco.mango.presentation.screens.auth.send.ui.SendAuthCodeFragment
-import com.fzco.mango.presentation.screens.country.ui.SelectCountryCodeFragment
+import com.fzco.mango.presentation.screens.auth.confirm.ConfirmAuthCodeFragment
+import com.fzco.mango.presentation.screens.auth.send.SendAuthCodeFragment
+import com.fzco.mango.presentation.screens.country.SelectCountryCodeFragment
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 
 object Screens {

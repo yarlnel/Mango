@@ -1,18 +1,14 @@
-package com.fzco.mango.presentation.screens.auth.send.ui
+package com.fzco.mango.presentation.screens.auth.send
 
 import android.app.AlertDialog
 import android.os.Bundle
 import android.telephony.PhoneNumberFormattingTextWatcher
-import android.text.Editable
 import android.view.View
 import androidx.fragment.app.setFragmentResultListener
 import com.fzco.mango.R
 import com.fzco.mango.databinding.FragmentSendAuthCodeBinding
 import com.fzco.mango.presentation.common.backpress.BackPressedStrategyOwner
 import com.fzco.mango.presentation.common.fragments.mvi.MviFragment
-import com.fzco.mango.presentation.screens.auth.send.contract.SendAuthCodeSideEffect
-import com.fzco.mango.presentation.screens.auth.send.contract.SendAuthCodeState
-import com.fzco.mango.presentation.screens.auth.send.vm.SendAuthCodeViewModel
 import com.fzco.mango.presentation.utils.common.countryCodeToEmoji
 import com.fzco.mango.presentation.utils.fragment.renderLoading
 import com.fzco.mango.presentation.utils.view.onTextChanged

@@ -1,8 +1,7 @@
-package com.fzco.mango.presentation.screens.auth.confirm.ui
+package com.fzco.mango.presentation.screens.auth.confirm
 
 import com.fzco.mango.databinding.FragmentConfirmAuthCodeBinding
 import com.fzco.mango.presentation.common.fragments.mvi.MviFragment
-import com.fzco.mango.presentation.screens.auth.confirm.vm.ConfirmAuthCodeViewModel
 
 class ConfirmAuthCodeFragment : MviFragment<ConfirmAuthCodeViewModel, FragmentConfirmAuthCodeBinding>(
     ConfirmAuthCodeViewModel::class,

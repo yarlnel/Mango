@@ -4,9 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.fzco.mango.di.common.viewmodel.DaggerViewModelFactory
 import com.fzco.mango.di.common.viewmodel.ViewModelKey
-import com.fzco.mango.presentation.screens.auth.confirm.vm.ConfirmAuthCodeViewModel
-import com.fzco.mango.presentation.screens.auth.send.vm.SendAuthCodeViewModel
-import com.fzco.mango.presentation.screens.country.vm.SelectCountryCodeViewModel
+import com.fzco.mango.presentation.screens.auth.confirm.ConfirmAuthCodeViewModel
+import com.fzco.mango.presentation.screens.auth.send.SendAuthCodeViewModel
+import com.fzco.mango.presentation.screens.country.SelectCountryCodeViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

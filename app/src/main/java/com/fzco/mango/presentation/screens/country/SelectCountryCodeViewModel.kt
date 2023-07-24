@@ -1,8 +1,6 @@
-package com.fzco.mango.presentation.screens.country.vm
+package com.fzco.mango.presentation.screens.country
 
 import com.fzco.mango.presentation.common.viewmodel.BaseViewModel
-import com.fzco.mango.presentation.screens.country.contract.SelectCountryCodeSideEffect
-import com.fzco.mango.presentation.screens.country.contract.SelectCountryCodeState
 import com.fzco.mango.presentation.utils.common.countryCodeToEmoji
 import io.michaelrocks.libphonenumber.android.PhoneNumberUtil
 import org.orbitmvi.orbit.syntax.simple.intent

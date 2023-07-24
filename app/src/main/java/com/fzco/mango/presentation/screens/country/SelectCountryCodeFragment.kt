@@ -1,4 +1,4 @@
-package com.fzco.mango.presentation.screens.country.ui
+package com.fzco.mango.presentation.screens.country
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -9,9 +9,7 @@ import androidx.fragment.app.setFragmentResult
 import com.fzco.mango.databinding.FragmentSelectCountryCodeBinding
 import com.fzco.mango.databinding.ItemPhoneCountryBinding
 import com.fzco.mango.presentation.common.fragments.mvi.MviFragment
-import com.fzco.mango.presentation.screens.auth.send.ui.SendAuthCodeFragment
-import com.fzco.mango.presentation.screens.country.contract.SelectCountryCodeState
-import com.fzco.mango.presentation.screens.country.vm.SelectCountryCodeViewModel
+import com.fzco.mango.presentation.screens.auth.send.SendAuthCodeFragment
 import com.fzco.mango.presentation.utils.view.onclick
 import com.fzco.mango.presentation.utils.view.recycler.createItemBindingDelegate
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter

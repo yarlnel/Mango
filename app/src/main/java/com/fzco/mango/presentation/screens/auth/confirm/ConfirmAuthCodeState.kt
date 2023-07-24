@@ -1,4 +1,4 @@
-package com.fzco.mango.presentation.screens.auth.confirm.contract
+package com.fzco.mango.presentation.screens.auth.confirm
 
 import com.fzco.mango.presentation.common.viewmodel.contract.IState
 

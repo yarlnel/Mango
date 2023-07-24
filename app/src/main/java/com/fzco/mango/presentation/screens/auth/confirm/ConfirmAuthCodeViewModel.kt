@@ -1,8 +1,8 @@
-package com.fzco.mango.presentation.screens.auth.confirm.vm
+package com.fzco.mango.presentation.screens.auth.confirm
 
 import com.fzco.mango.presentation.common.viewmodel.BaseViewModel
-import com.fzco.mango.presentation.screens.auth.confirm.contract.ConfirmAuthCodeSideEffect
-import com.fzco.mango.presentation.screens.auth.confirm.contract.ConfirmAuthCodeState
+import com.fzco.mango.presentation.screens.auth.confirm.ConfirmAuthCodeSideEffect
+import com.fzco.mango.presentation.screens.auth.confirm.ConfirmAuthCodeState
 import javax.inject.Inject
 
 class ConfirmAuthCodeViewModel @Inject constructor(

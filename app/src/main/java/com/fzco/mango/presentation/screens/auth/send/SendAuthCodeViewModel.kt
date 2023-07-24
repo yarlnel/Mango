@@ -1,14 +1,12 @@
-package com.fzco.mango.presentation.screens.auth.send.vm
+package com.fzco.mango.presentation.screens.auth.send
 
 
 import com.fzco.mango.domain.usecase.auth.SendAuthCode
 import com.fzco.mango.presentation.common.viewmodel.BaseViewModel
 import com.fzco.mango.presentation.navigation.graph.Screens
-import com.fzco.mango.presentation.screens.auth.send.contract.SendAuthCodeSideEffect
-import com.fzco.mango.presentation.screens.auth.send.contract.SendAuthCodeState
-import com.fzco.mango.presentation.utils.viewmodel.loading.intentLoading
+import com.fzco.mango.presentation.screens.auth.send.SendAuthCodeSideEffect
+import com.fzco.mango.presentation.screens.auth.send.SendAuthCodeState
 import com.github.terrakok.cicerone.Router
-import kotlinx.coroutines.delay
 import org.orbitmvi.orbit.syntax.simple.intent
 import org.orbitmvi.orbit.syntax.simple.postSideEffect
 import org.orbitmvi.orbit.syntax.simple.reduce
