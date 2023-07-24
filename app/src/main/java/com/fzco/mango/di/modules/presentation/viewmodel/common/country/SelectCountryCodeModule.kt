@@ -16,6 +16,7 @@ interface SelectCountryCodeModule {
     fun bindVM(vm: SelectCountryCodeViewModel): ViewModel
 
     companion object {
+
         @Provides
         fun provideVM(phoneUtil: PhoneNumberUtil) = SelectCountryCodeViewModel(phoneUtil)
     }

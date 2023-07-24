@@ -1,4 +1,4 @@
-package com.fzco.mango.di.modules.presentation.viewmodel.base
+package com.fzco.mango.di.modules.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

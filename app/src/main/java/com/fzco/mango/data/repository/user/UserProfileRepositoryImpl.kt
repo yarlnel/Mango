@@ -11,4 +11,5 @@ class UserProfileRepositoryImpl @Inject constructor(
     UserProfileRepository {
 
     override var phone by prefString()
+    override var phoneRegion by prefString()
 }

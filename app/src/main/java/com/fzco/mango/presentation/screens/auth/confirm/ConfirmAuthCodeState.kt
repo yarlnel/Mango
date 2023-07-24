@@ -1,9 +1,9 @@
 package com.fzco.mango.presentation.screens.auth.confirm
 
-import com.fzco.mango.presentation.common.viewmodel.contract.IState
+import com.fzco.mango.presentation.common.viewmodel.loading.ILoadingState
 
 data class ConfirmAuthCodeState(
+    override var isLoading: Boolean = false,
     val phone: String = "",
-    val countryCode: String = "",
-    val authCode: String = ""
-) : IState
+    val phoneRegion: String = ""
+) : ILoadingState

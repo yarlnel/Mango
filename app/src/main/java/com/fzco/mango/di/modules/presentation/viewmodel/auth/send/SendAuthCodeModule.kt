@@ -3,6 +3,7 @@ package com.fzco.mango.di.modules.presentation.viewmodel.auth.send
 import androidx.lifecycle.ViewModel
 import com.fzco.mango.di.common.viewmodel.ViewModelKey
 import com.fzco.mango.domain.usecase.auth.SendAuthCode
+import com.fzco.mango.domain.usecase.user.phone.SaveUserPhoneData
 import com.fzco.mango.presentation.screens.auth.send.SendAuthCodeViewModel
 import com.github.terrakok.cicerone.Router
 import dagger.Binds
@@ -22,6 +23,7 @@ interface SendAuthCodeModule {
         fun provideVM(
             router: Router,
             sendAuthCode: SendAuthCode,
-        ) = SendAuthCodeViewModel(router, sendAuthCode)
+            saveUserPhoneData: SaveUserPhoneData
+        ) = SendAuthCodeViewModel(router, sendAuthCode, saveUserPhoneData)
     }
 }

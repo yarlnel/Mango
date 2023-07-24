@@ -1,10 +1,14 @@
 package com.fzco.mango.presentation.utils.view
 
+import android.app.AlertDialog
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.widget.EditText
 import android.widget.TextView
+import androidx.annotation.IdRes
+import androidx.annotation.StringRes
+import androidx.fragment.app.Fragment
+import com.fzco.mango.R
 
 infix fun View.onclick(callback: () -> Unit) {
     setOnClickListener { callback.invoke() }
@@ -20,4 +24,18 @@ infix fun TextView.onTextChanged(callback: (text: String) -> Unit) {
         }
     }
     addTextChangedListener(watcher)
+}
+
+fun Fragment.showErrorConfirmationDialog(@StringRes id: Int) {
+    val message = getString(id)
+    showErrorConfirmationDialog(message)
+}
+
+fun Fragment.showErrorConfirmationDialog(message: String) {
+    AlertDialog.Builder(requireContext())
+        .setTitle(R.string.err)
+        .setMessage(message)
+        .setPositiveButton(R.string.ok) { dialog, _ ->
+            dialog.dismiss()
+        }.show()
 }

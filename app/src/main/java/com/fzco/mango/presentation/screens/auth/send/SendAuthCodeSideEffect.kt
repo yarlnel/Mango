@@ -5,4 +5,5 @@ import com.fzco.mango.presentation.common.viewmodel.contract.ISideEffect
 sealed interface SendAuthCodeSideEffect : ISideEffect {
 
     object SendAuthError : SendAuthCodeSideEffect
+    object InvalidPhone : SendAuthCodeSideEffect
 }

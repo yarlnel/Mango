@@ -15,4 +15,6 @@
     <string name="confirm_auth_code">Подтвердить код</string>
     <string name="title_choose_country">Выберете страну</string>
     <string name="phone_prefix_template">+%1$d</string>
+    <string name="err_invalid_phone">Неправильный номер телефона</string>
+    <string name="err_confirmation_code_not_valid">Неправильный код авторизации</string>
 </resources>

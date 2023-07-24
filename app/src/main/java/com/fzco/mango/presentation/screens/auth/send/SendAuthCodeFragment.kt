@@ -1,6 +1,5 @@
 package com.fzco.mango.presentation.screens.auth.send
 
-import android.app.AlertDialog
 import android.os.Bundle
 import android.telephony.PhoneNumberFormattingTextWatcher
 import android.view.View
@@ -13,6 +12,7 @@ import com.fzco.mango.presentation.utils.common.countryCodeToEmoji
 import com.fzco.mango.presentation.utils.fragment.renderLoading
 import com.fzco.mango.presentation.utils.view.onTextChanged
 import com.fzco.mango.presentation.utils.view.onclick
+import com.fzco.mango.presentation.utils.view.showErrorConfirmationDialog
 import io.michaelrocks.libphonenumber.android.PhoneNumberUtil
 import kotlinx.coroutines.flow.collectLatest
 import javax.inject.Inject
@@ -45,16 +45,12 @@ class SendAuthCodeFragment : MviFragment<SendAuthCodeViewModel, FragmentSendAuth
     }
 
     private fun handleSideEffect(sideEffect: SendAuthCodeSideEffect) = when (sideEffect) {
-        SendAuthCodeSideEffect.SendAuthError -> showSendAuthError()
-    }
-
-    private fun showSendAuthError() {
-        AlertDialog.Builder(requireContext())
-            .setTitle(R.string.err)
-            .setMessage(R.string.err_send_auth_code)
-            .setPositiveButton(R.string.ok) { dialog, _ ->
-                dialog.dismiss()
-            }.show()
+        SendAuthCodeSideEffect.SendAuthError -> showErrorConfirmationDialog(
+            R.string.err_send_auth_code
+        )
+        SendAuthCodeSideEffect.InvalidPhone -> showErrorConfirmationDialog(
+            R.string.err_invalid_phone
+        )
     }
 
     private fun setUpListeners() = with(binding) {
