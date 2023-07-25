@@ -29,18 +29,25 @@ class ConfirmAuthCodeFragment : MviFragment<ConfirmAuthCodeViewModel, FragmentCo
 
     private fun handleState() = observe(
         stateCollectLaunch = {
-            viewModel.stateFlow.collectLatest { it.render() }
+            viewModel.stateFlow.collectLatest (::render)
         },
         sideEffectCollectLaunch = {
             viewModel.sideEffectFlow.collect(::handleSideEffect)
         }
     )
 
-    private fun ConfirmAuthCodeState.render() = with(binding) {
-        fieldPhone.setText(phone)
+    private fun render(state: ConfirmAuthCodeState) = with(state) {
+        renderPhone(phone)
+        renderPhoneRegion(phoneRegion)
+    }
 
+    private fun renderPhone(phone: String) {
+        binding.fieldPhone.setText(phone)
+    }
+
+    private fun renderPhoneRegion(phoneRegion: String) {
         val regionEmoji = countryCodeToEmoji(phoneRegion)
-        btnCountry.text = regionEmoji
+        binding.btnCountry.text = regionEmoji
     }
 
     private fun handleSideEffect(sideEffect: ConfirmAuthCodeSideEffect) = when(sideEffect) {

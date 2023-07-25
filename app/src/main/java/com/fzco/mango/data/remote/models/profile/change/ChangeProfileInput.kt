@@ -2,7 +2,7 @@ package com.fzco.mango.data.remote.models.profile.change
 
 import com.fzco.mango.data.remote.models.profile.common.Avatar
 
-data class ChangeProfileBody(
+data class ChangeProfileInput(
     val avatar: Avatar,
     val birthday: String,
     val city: String,

@@ -1,7 +1,7 @@
 package com.fzco.mango.hand
 
 import com.fzco.mango.data.remote.api.MangoApi
-import com.fzco.mango.data.remote.models.registration.RegisterUserBody
+import com.fzco.mango.data.remote.models.registration.RegisterUserInput
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -62,7 +62,7 @@ suspend fun register() {
     val name = input("Name: ")
     val phone = input("Phone: ")
     val username = input("Username: ")
-    val data = RegisterUserBody(name, phone, username)
+    val data = RegisterUserInput(name, phone, username)
     service.registerUser(data).body().puts()
 }
 

@@ -1,5 +1,5 @@
 package com.fzco.mango.data.remote.models.auth.send
 
-data class SendAuthCodeBody(
+data class SendAuthCodeInput(
     val phone: String
 )
