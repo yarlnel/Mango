@@ -11,14 +11,13 @@ class RegisterUser @Inject constructor(
         phone: String,
         name: String,
         username: String
-    ) {
-        authService.registerUser(name, username, phone)
-    }
+    ) = authService.registerUser(name, username, phone)
+
 
     sealed interface Result {
         object Success : Result
-        object InvalidName : Result
-        object InvalidUserName : Result
-        object InternalError : Result
+        data class Error(
+           val message: String
+        ) : Result
     }
 }

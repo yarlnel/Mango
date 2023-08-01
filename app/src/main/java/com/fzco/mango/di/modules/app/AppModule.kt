@@ -3,6 +3,7 @@ package com.fzco.mango.di.modules.app
 import android.app.Application
 import android.content.Context
 import com.fzco.mango.di.modules.app.navigation.NavigationModule
+import com.fzco.mango.di.modules.data.network.gson.GsonModule
 import com.fzco.mango.di.modules.data.network.retrofit.RetrofitModule
 import com.fzco.mango.di.modules.data.repository.RepositoryModule
 import com.fzco.mango.di.modules.data.service.ServiceModule
@@ -19,7 +20,8 @@ import dagger.Provides
     ViewModelModule::class,
     ContributeInjectorsModule::class,
     UtilsModule::class,
-    RepositoryModule::class
+    RepositoryModule::class,
+    GsonModule::class
 ])
 class AppModule {
 

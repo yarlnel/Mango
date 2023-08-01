@@ -18,12 +18,12 @@
         android:id="@+id/icon_reg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
         android:src="@drawable/icon_reg"
-        app:tint="@color/salat"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title_registration"
-        android:layout_marginTop="80dp"/>
+        app:tint="@color/salat" />
 
 
     <TextView
@@ -51,23 +51,38 @@
         app:layout_constraintTop_toBottomOf="@id/icon_reg"
         tools:text="+79131039900" />
 
-    <EditText
-        android:id="@+id/field_name"
-        style="@style/Field.Base"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/container_field_name"
+        style="@style/FieldContainer"
+        android:layout_marginTop="8dp"
         android:hint="@string/hint_name"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/field_phone"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/field_phone">
 
-    <EditText
-        android:id="@+id/field_username"
-        style="@style/Field.Base"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/field_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/container_field_username"
+        style="@style/FieldContainer"
+
         android:hint="@string/hint_login"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/field_name"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/container_field_name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/field_username"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btn_registration"
@@ -75,8 +90,7 @@
         android:text="@string/title_do_registration"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

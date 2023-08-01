@@ -17,4 +17,9 @@
     <string name="phone_prefix_template">+%1$d</string>
     <string name="err_invalid_phone">Неправильный номер телефона</string>
     <string name="err_confirmation_code_not_valid">Неправильный код авторизации</string>
+    <string name="err_name_field_validation">От 3 до 30 букв</string>
+    <string name="err_username_validation">Латинский алфавит, цифры, спецсимволы (_,-)</string>
+    <string name="err_username_not_valid_message">Неправильный логин</string>
+    <string name="err_name_not_valid_message">Неправильное имя пользователя</string>
+    <string name="err_registration_internal">Что-то пошло не так :(\nПопробуйте зарегистрироваться чуть позже.</string>
 </resources>

@@ -20,6 +20,13 @@
         <item name="android:layout_width">0dp</item>
     </style>
 
+    <style name="FieldContainer">
+        <item name="android:layout_marginHorizontal">16dp</item>
+        <item name="android:minHeight">60dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+    </style>
+
     <style name="AppTheme" parent="Theme.AppCompat">
         <item name="buttonStyle">@style/NotCapsButton</item>
     </style>
